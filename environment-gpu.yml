@@ -1,0 +1,33 @@
+# Ambiente conda per usare la GPU (RTX 4070) con TensorFlow su Windows nativo,
+# senza WSL. TensorFlow >= 2.11 non ha piu' supporto GPU nativo su Windows,
+# quindi qui si usa l'ultima versione che lo aveva: TensorFlow 2.10 + CUDA 11.2
+# + cuDNN 8.1 (installati come pacchetti conda, self-contained nell'env).
+#
+# Verificato su questa macchina (RTX 4070 Laptop, Ada Lovelace / compute
+# capability 8.9): rileva la GPU, esegue matmul e un fit Keras su GPU
+# correttamente nonostante CUDA 11.2 sia precedente all'architettura Ada.
+#
+# Creazione:   conda env create -f environment-gpu.yml
+# Attivazione: conda activate medicine-gpu
+#              (dopo "conda init powershell" + riavvio del terminale)
+#
+# NOTA numpy: tensorflow==2.10 include estensioni compilate contro numpy 1.x;
+# con numpy 2.x l'import fallisce (_ARRAY_API not found). Percio' e' pinnato <2.
+
+name: medicine-gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - cudatoolkit=11.2
+  - cudnn=8.1.0
+  - pip
+  - pip:
+      - tensorflow==2.10.*
+      - "numpy<2"
+      - pandas
+      - pillow
+      - matplotlib
+      - seaborn
+      - scikit-learn
+      - h5py

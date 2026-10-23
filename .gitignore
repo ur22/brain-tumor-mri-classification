@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Dataset (non si caricano su GitHub: vanno scaricati dalle fonti originali)
+data/
+extracted_datasets/
+jpg_images/
+brainTumorDataPublic_*/
+*.zip
+*.mat
+
+# Output generati dagli script (manifest con percorsi locali, split, figure)
+outputs/
+
+# Modelli e predizioni
+*.h5
+*.keras
+*.npz
+
+# Log di training
+*.log
+
+# Editor / strumenti
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db

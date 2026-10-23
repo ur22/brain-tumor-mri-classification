@@ -1,0 +1,10 @@
+# Dipendenze del progetto (CPU, o GPU su Linux con tensorflow[and-cuda]).
+# Per la GPU su Windows nativo vedi environment-gpu.yml, per WSL2 requirements-wsl.txt.
+numpy
+pandas
+pillow
+matplotlib
+seaborn
+scikit-learn
+tensorflow
+h5py
